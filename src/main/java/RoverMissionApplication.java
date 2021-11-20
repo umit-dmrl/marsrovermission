@@ -5,6 +5,9 @@ import java.util.List;
 
 public class RoverMissionApplication {
     public static void main(String[] args) {
+
+        //You can run the MAIN method to see the program output also you can change inputs for the different results..
+
         String roverInputs = new StringBuilder("5 5\n")
                 .append("1 2 N\n")
                 .append("LMLMLMLMM\n")
