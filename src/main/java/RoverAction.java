@@ -57,12 +57,15 @@ public class RoverAction {
 
         Stream.of(this.roverInstructions.split("")).forEach(instruction -> {
             decideAndRotateHeading(instruction, rover);
-            roverMoving(rover);
+            roverMoving(instruction, rover);
         });
 
         System.out.println("Outputs : ");
         if (!roverLastPositionIsValid(rover)) {
             System.out.println("Rover left the area! Please check your instructions.");
+            System.out.println("x : " + rover.getX());
+            System.out.println("y : " + rover.getY());
+            System.out.println("heading : " + rover.getDirection());
             return null;
         }
 
@@ -82,15 +85,17 @@ public class RoverAction {
         }
     }
 
-    private void roverMoving(Rover rover) {
-        if (rover.getDirection().equals("W")) {
-            rover.setX(rover.getX() - 1);
-        } else if (rover.getDirection().equals("E")) {
-            rover.setX(rover.getX() + 1);
-        } else if (rover.getDirection().equals("N")) {
-            rover.setY(rover.getY() + 1);
-        } else if (rover.getDirection().equals("S")) {
-            rover.setY(rover.getY() - 1);
+    private void roverMoving(String instruction, Rover rover) {
+        if (instruction.equals("M")) {
+            if (rover.getDirection().equals("W")) {
+                rover.setX(rover.getX() - 1);
+            } else if (rover.getDirection().equals("E")) {
+                rover.setX(rover.getX() + 1);
+            } else if (rover.getDirection().equals("N")) {
+                rover.setY(rover.getY() + 1);
+            } else if (rover.getDirection().equals("S")) {
+                rover.setY(rover.getY() - 1);
+            }
         }
     }
 
