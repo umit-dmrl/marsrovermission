@@ -63,9 +63,6 @@ public class RoverAction {
         System.out.println("Outputs : ");
         if (!roverLastPositionIsValid(rover)) {
             System.out.println("Rover left the area! Please check your instructions.");
-            System.out.println("x : " + rover.getX());
-            System.out.println("y : " + rover.getY());
-            System.out.println("heading : " + rover.getDirection());
             return null;
         }
 
